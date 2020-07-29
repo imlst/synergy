@@ -1,0 +1,30 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.strong-solutions-register'
+
+.ui #{$class}
+	background: url("../img/pages/strong-solutions/register/pattern-l.svg") -30px calc(100% - 30px) no-repeat, url("../img/pages/strong-solutions/register/pattern-r.svg") calc(100% + 10px) calc(100% - 30px) no-repeat, #000000
+	background-size: 180px, 120px
+	color: white
+	padding: 50px 0
+
+	@include media-min(sm)
+		background-size: 260px, 160px
+		padding: 80px 0
+
+	@include media-min(lg)
+		background: url("../img/pages/strong-solutions/register/pattern-l.svg") left calc(100% - 30px) no-repeat, url("../img/pages/strong-solutions/register/pattern-r.svg") right calc(100% - 30px) no-repeat, #000000
+		padding: 100px 0
+
+	&__form
+		background: white
+		border-radius: 10px
+		color: color(--black)
+		padding: 40px 10px
+		max-width: 370px
+		margin: 35px auto 0
+
+		@include media-min(sm)
+			max-width: 570px
+			padding: 40px 80px 60px
+			margin: 80px auto 0

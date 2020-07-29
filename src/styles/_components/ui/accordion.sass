@@ -1,0 +1,143 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.accordion'
+
+.ui #{$class}
+	overflow: hidden
+	display: flex
+	flex-direction: column
+	border-bottom: 1px solid color(--indigo-15)
+
+	&:last-child
+		border-bottom: none
+
+	&.--collapsed
+		#{$class}__body
+			height: 0 !important
+			opacity: 0
+			margin-bottom: 0
+
+		#{$class}__icon
+			span
+				&:nth-child(1)
+					height: 20px
+					opacity: 1
+
+		#{$class}__subtitle
+			margin-bottom: 0
+
+		#{$class}__toggle
+			&:hover
+				#{$class}__icon
+					span
+						background: color(--blue)
+
+	&.--program
+		background: white
+		border: 1px solid color(--indigo-35)
+		border-radius: 10px
+		padding: 10px
+		margin-bottom: 15px
+		max-width: 870px
+		box-shadow: 0 9px 15px 0 color(--black-shadow)
+
+		@include media-min(sm)
+			padding: 15px 20px
+
+		&.--collapsed
+			box-shadow: none
+
+			#{$class}__toggle
+				margin-bottom: 0
+
+		#{$class}__toggle
+			padding: 0
+			margin-bottom: 10px
+
+			@include media-min(sm)
+				margin-bottom: 15px
+
+		#{$class}__icon
+			margin-right: 0
+			margin-left: 5px
+			order: 1
+
+		#{$class}__body
+			padding: 0
+			margin-bottom: 0
+
+			ul
+				padding-left: 20px
+
+	&__toggle
+		display: flex
+		flex: 0 0 auto
+		cursor: pointer
+		padding: 15px 0
+		transition: margin 0.2s ease
+		will-change: margin
+
+		&:hover
+			#{$class}__icon
+				span
+					background: color(--error)
+
+		@include media-min(sm)
+			padding: 25px 0
+
+	&__heading
+		font-size: 18px
+		font-weight: 700
+		user-select: none
+		color: color(--black)
+		flex: 1
+		align-self: center
+
+		@include media-min(sm)
+			font-size: 22px
+
+	&__subtitle
+		font-size: 16px
+		font-weight: 500
+		color: color(--indigo-80)
+		margin-top: 5px
+		margin-bottom: 10px
+		transition: margin 0.2s ease
+		will-change: margin
+
+		@include media-min(sm)
+			font-size: 18px
+
+	&__icon
+		width: 26px
+		height: 26px
+		margin-right: 20px
+		position: relative
+		flex: 0 0 auto
+
+		span
+			display: block
+			background: color(--indigo-80)
+			width: 20px
+			height: 3px
+			border-radius: 2px
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			transition: height 0.2s ease, opacity 0.2s ease, background 0.2s ease
+			will-change: height, opacity, background
+
+			&:nth-child(1)
+				width: 3px
+				height: 0
+				opacity: 0
+
+	&__body
+		color: color(--indigo-80)
+		font-size: 18px
+		overflow: auto
+		margin-bottom: 15px
+		padding-left: 46px
+		transition: height 0.2s ease, opacity 0.2s ease
+		will-change: height, opacity

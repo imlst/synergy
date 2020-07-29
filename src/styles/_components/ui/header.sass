@@ -1,0 +1,276 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.header'
+
+.ui #{$class}
+	font-size: 17px
+	font-weight: 600
+	position: relative
+
+	&.--mobile-menu-opened
+		#{$class}__burger-menu
+			&-close
+				display: block
+
+			&-open
+				display: none
+
+		#{$class}__mobile-menu
+			@include media-max(md)
+				opacity: 1
+				visibility: visible
+
+	&__container
+		width: 100%
+		max-width: $container-size
+		padding: 0 15px
+		margin: 0 auto
+
+	&__first-level
+		display: flex
+		height: 90px
+		background: color(--black)
+		background: var(--black)
+		color: white
+		padding: 20px 0
+
+		#{$class}__container
+			display: flex
+			align-items: center
+
+		#{$class}__menu
+			display: none
+
+			@include media-min(md)
+				display: block
+
+	&__second-level
+		background: color(--black-90)
+		background: var(--black-90)
+		display: none
+		height: 50px
+
+		@include media-min(md)
+			display: flex
+
+	&__third-level
+		background: color(--black-85)
+		background: var(--black-85)
+		display: none
+		height: 50px
+
+		@include media-min(md)
+			display: flex
+
+	&__logo
+		img
+			display: block
+			width: 150px
+
+		@include media-min(sm)
+			margin-right: 80px
+
+	&__right-block
+		display: flex
+		align-items: center
+		margin-left: auto
+
+	&__phone
+		color: white
+		display: none
+
+		&:hover
+			text-decoration: none
+
+		@include media-min(xsm)
+			display: block
+
+	&__profile
+		color: white
+		display: none
+		align-items: center
+
+		&:hover
+			text-decoration: none
+
+		@include media-min(md)
+			display: flex
+			margin-left: 50px
+
+	&__avatar
+		width: 44px
+		height: 44px
+		flex: 0 0 auto
+		border-radius: 50%
+		background: white center no-repeat
+		background-size: cover
+		margin-right: 10px
+
+	&__login
+		display: none
+
+		@include media-min(md)
+			display: inline-flex
+			margin-left: 50px
+
+	&__burger-menu
+		padding: 10px 0
+		cursor: pointer
+		width: 90px
+		text-align: right
+		user-select: none
+
+		@include media-min(xsm)
+			margin-left: 50px
+
+		@include media-min(md)
+			display: none
+
+		&-close
+			display: none
+
+	&__menu-icon
+		margin-right: 10px
+
+		&:last-child
+			margin-right: 0
+
+	&__menu
+		margin: 0 -15px
+		padding: 0 15px
+		height: 100%
+
+		&.--scrollable
+			overflow: hidden
+
+			> ul
+				list-style: none
+				padding-left: 0
+				overflow-x: auto
+				-webkit-overflow-scrolling: touch
+				padding-bottom: 30px
+				margin-bottom: -30px
+
+		> ul
+			list-style: none
+			padding-left: 0
+			display: flex
+			align-items: center
+			height: 100%
+			box-sizing: content-box
+			margin: 0 -15px
+
+			> li
+				display: inline-block
+				position: relative
+				margin-bottom: 0
+
+				&:hover
+					#{$class}__menu-dropdown
+						opacity: 1
+						visibility: visible
+						transform: translateX(-50%)
+
+					#{$class}__dropdown-arrow
+						transform: scaleY(-1)
+
+				&.active
+					> a
+						color: white
+
+				> a
+					display: flex
+					align-items: center
+					padding: 15px
+					line-height: 1
+					color: color(--black-50)
+					color: var(--black-50)
+					transition: color 0.2s ease
+
+					&:hover
+						text-decoration: none
+						color: white
+
+		#{$class}__dropdown-arrow
+			font-size: 13px
+			margin-left: 5px
+			transition: transform 0.2s ease
+
+	&__menu-dropdown
+		background: white
+		border-radius: 10px
+		padding: 20px
+		position: absolute
+		z-index: 100
+		top: 100%
+		left: 50%
+		opacity: 0
+		visibility: hidden
+		transform: translateX(-50%) translateY(-5px)
+		transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease
+		box-shadow: 0 9px 15px 0 color(--black-shadow)
+		box-shadow: 0 9px 15px 0 var(--black-shadow)
+
+	&__sections-list
+		min-width: 200px
+		margin: -10px 0
+		list-style: none
+		padding-left: 0
+
+		> li
+			margin-bottom: 0
+
+			&.active
+				> a
+					color: color(--blue)
+					color: var(--blue)
+
+			> a
+				display: flex
+				padding: 10px 0
+				align-items: center
+				color: color(--black)
+				color: var(--black)
+
+				&:hover
+					text-decoration: none
+					color: color(--blue)
+					color: var(--blue)
+
+				#{$class}__menu-icon
+					margin-left: auto
+
+	&__mobile-menu
+		background: white
+		padding: 0 15px
+		opacity: 0
+		visibility: hidden
+		transition: opacity 0.1s ease, visibility 0.1s ease
+		box-shadow: 0 9px 15px 0 color(--black-shadow)
+		position: absolute
+		top: 100%
+		width: 100%
+		z-index: 2
+
+		@include media-min(md)
+			display: none
+
+		#{$class}__menu
+			border-bottom: 1px solid color(--black-5)
+			border-bottom: 1px solid var(--black-5)
+			height: 50px
+
+			ul
+				> li
+					&.active
+						> a
+							color: color(--black)
+							color: var(--black)
+
+					> a
+						color: color(--indigo-80)
+						color: var(--indigo-80)
+						padding: 0 15px
+
+		#{$class}__sections-list
+			margin: 10px 0

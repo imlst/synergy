@@ -1,0 +1,112 @@
+@import 'src/styles/_base/mixins'
+
+.speaker-card
+	display: flex
+	flex-direction: column
+	background: color(--base-white)
+	border-radius: 20px
+	overflow: hidden
+	width: 328px
+	max-width: 100%
+	height: 438px
+	box-shadow: 0 0 0 0 color(--accent-blue), color(--base-shadow-8)
+	transition: box-shadow 0.2s ease
+	will-change: box-shadow
+
+	&:hover
+		box-shadow: 0 0 0 1px color(--accent-blue), color(--base-shadow-22)
+
+		.speaker-card__name
+			color: color(--accent-blue)
+
+	&.--blue
+		background: linear-gradient(180deg, transparentize(color(--accent-blue), 0.7) 20%, rgba(255, 255, 255, 0) 100%), color(--base-white)
+
+		.speaker-card__head
+			background: color(--accent-blue)
+
+	&.--purple
+		background: linear-gradient(180deg, transparentize(color(--accent-purple), 0.7) 20%, rgba(255, 255, 255, 0) 100%), color(--base-white)
+
+		&:hover
+			box-shadow: 0 0 0 1px color(--accent-purple), color(--base-shadow-22)
+
+		.speaker-card__head
+			background: color(--accent-purple)
+
+	&__head
+		display: flex
+		justify-content: center
+		background: color(--secondary)
+		height: 124px
+		position: relative
+
+	&__photo-wrapper
+		display: flex
+		align-items: center
+		justify-content: center
+		background: color(--base-white)
+		width: 140px
+		height: 140px
+		border-radius: 50%
+		margin-top: 8px
+
+	&__photo
+		background: color(--secondary)
+		width: 120px
+		height: 120px
+		border-radius: 50%
+
+	&__info-icon
+		position: absolute
+		top: 15px
+		right: 15px
+
+	&__body
+		display: flex
+		flex-direction: column
+		flex: 1 1 auto
+		padding: 32px 16px 16px
+		height: auto
+
+	&__tags
+		margin-bottom: 4px
+
+	&__name
+		$line-height: 28px
+		$max-lines: 2
+
+		display: block
+		color: color(--base-text)
+		font-size: 20px
+		line-height: $line-height
+		max-height: calc(#{$line-height} * #{$max-lines})
+		overflow: hidden
+		font-weight: 700
+		margin-bottom: 6px
+		transition: color 0.2s ease
+		will-change: color
+
+		&:hover
+			text-decoration: none
+
+	&__description
+		$line-height: 24px
+		$max-lines: 3
+
+		color: color(--secondary-text)
+		line-height: $line-height
+		max-height: calc(#{$line-height} * #{$max-lines})
+		overflow: hidden
+		margin-bottom: 10px
+
+	&__achieves
+		display: flex
+		border-top: 1px solid color(--border)
+		border-bottom: 1px solid color(--border)
+		padding: 6px 0
+		//margin-top: auto
+		margin-bottom: 8px
+
+	&__bottom
+		margin-top: auto

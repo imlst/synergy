@@ -1,0 +1,124 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.checkout-pay-method'
+
+.ui #{$class}
+	display: flex
+	height: 100%
+
+	&:hover
+		#{$class}__view,
+		#{$class}__marker
+			border-color: color(--black)
+
+	&.--legal
+		#{$class}__pattern
+			width: 70px
+			height: 55px
+			background: url("../img/patterns/checkout-pay-method-legal.svg") no-repeat
+
+	&.--phisical
+		#{$class}__pattern
+			width: 80px
+			height: 57px
+			background: url("../img/patterns/checkout-pay-method-phisical.svg") no-repeat
+
+	[type="radio"]
+		opacity: 0
+		position: absolute
+		pointer-events: none
+
+		&:checked
+			+ #{$class}__view
+				background: color(--success)
+				border-color: color(--success)
+				color: white
+
+				#{$class}__marker
+					border-color: color(--success)
+
+					.icon
+						opacity: 1
+
+				#{$class}__title
+					color: white
+
+				#{$class}__pattern
+					opacity: 1
+					bottom: 0
+					visibility: visible
+
+	&__view
+		display: flex
+		background: white
+		border-radius: 10px
+		padding: 20px 15px
+		border: 1px solid color(--indigo-35)
+		cursor: pointer
+		transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease
+		font-size: 16px
+		font-weight: 500
+		color: color(--indigo-35)
+		position: relative
+		z-index: 1
+		width: 100%
+		overflow: hidden
+
+		@include media-min(sm)
+			padding: 25px 20px
+
+	&__marker
+		display: flex
+		align-items: center
+		justify-content: center
+		flex: 0 0 auto
+		background: white
+		width: 40px
+		height: 40px
+		border-radius: 50%
+		border: 1px solid color(--indigo-35)
+		font-size: 16px
+		color: color(--success)
+		align-self: center
+		transition: border-color 0.2s ease
+
+		.icon
+			opacity: 0
+			transition: opacity 0.2s ease
+
+	&__info
+		margin-right: 10px
+		flex: 1 1 auto
+
+		@include media-min(sm)
+			margin-right: 20px
+
+	&__title
+		display: block
+		font-size: 18px
+		color: color(--black)
+		margin-bottom: 5px
+		transition: color 0.2s ease
+
+		@include media-min(sm)
+			font-size: 22px
+
+	&__pattern
+		position: absolute
+		bottom: -15px
+		right: 12%
+		opacity: 0
+		z-index: -1
+		transition: opacity 0.3s ease, bottom 0.3s ease
+		display: none
+		visibility: hidden
+
+		@include media-min(sm)
+			display: block
+
+	&__pay-systems
+		display: flex
+		align-items: center
+
+		img
+			margin-right: 10px

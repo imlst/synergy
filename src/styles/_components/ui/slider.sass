@@ -1,0 +1,82 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.slider'
+
+html:not(.-mobile)
+	#{$class}
+		&__slide
+			transition: opacity 0.2s ease
+			will-change: opacity
+
+			&.--outside
+				opacity: 0.4
+
+.ui #{$class}
+	&__heading
+		display: flex
+		align-items: center
+		margin-bottom: 30px
+
+		#{$class}__title
+			margin-bottom: 0 !important
+			flex: 1 1 auto
+
+	&__wrapper
+		overflow: hidden
+		padding: 0 15px
+		margin: 0 -15px
+
+		@include media-min(sm)
+			padding: 0 30px
+			margin: 0 -30px
+
+		@include media-min(md)
+			padding: 0 15px
+			margin: 0 -15px
+
+	&__scroller
+		display: flex
+		overflow-x: auto
+		-webkit-overflow-scrolling: touch
+		padding-bottom: 60px
+		margin: 0 -15px -40px
+		position: relative
+
+		@include media-min(sm)
+			margin: 0 -30px -40px
+
+		@include media-min(md)
+			margin: 0 -15px -40px
+
+	&__slide
+		padding: 0 10px
+
+		&:first-child
+			padding-left: 15px
+
+			@include media-min(sm)
+				padding-left: 30px
+
+			@include media-min(md)
+				padding-left: 15px
+
+		&:last-child
+			padding-right: 15px
+
+			@include media-min(sm)
+				padding-left: 30px
+
+			@include media-min(md)
+				padding-left: 15px
+
+		@include media-min(sm)
+			padding: 0 15px
+
+	&__controls
+		width: 150px
+		display: none
+		justify-content: space-between
+		margin-left: 15px
+
+		@include media-min(sm)
+			display: flex

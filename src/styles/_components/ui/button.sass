@@ -1,0 +1,113 @@
+@import 'src/styles/_base/mixins'
+
+.button
+	appearance: none
+	box-sizing: border-box
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	vertical-align: middle
+	background: color(--accent-blue)
+	border: 1px solid color(--accent-blue)
+	border-radius: 4px
+	color: color(--white-text)
+	font-family: 'Roboto', sans-serif
+	font-size: 18px
+	font-weight: 500
+	height: 64px
+	padding: 0 36px
+	cursor: pointer
+	transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease
+	will-change: background, color, border-color, opacity
+
+	&:hover, &:active, &.--active
+		text-decoration: none
+		background: color(--accent-dark-blue)
+		border-color: color(--accent-dark-blue)
+
+	&[disabled], &.--disabled
+		background: color(--disabled)
+		border-color: color(--disabled)
+		opacity: 0.6
+		pointer-events: none
+
+	.icon
+		font-size: 62px
+
+	//.icon
+		font-size: 1.2em
+		margin: 0 0.4em
+
+		&:first-child
+			margin-left: 0
+
+		&:last-child
+			margin-right: 0
+
+	&.--outline
+		background: none
+		color: color(--accent-blue)
+
+		&:hover, &.--active
+			background: color(--primary-light)
+			color: color(--accent-dark-blue)
+
+		&[disabled], &.--disabled
+			background: color(--light-gray)
+			color: color(--disabled)
+
+	&.--medium
+		height: 48px
+		font-size: 16px
+
+		.icon
+			font-size: 46px
+
+		&.--icon
+			width: 48px
+
+	&.--small
+		height: 32px
+		font-size: 16px
+		padding: 0 16px
+
+		.icon
+			font-size: 30px
+
+		&.--icon
+			width: 32px
+
+	&.--icon
+		padding: 0
+		width: 64px
+
+[data-theme="dark"]
+	.button
+		background: color(--base-white)
+		border-color: color(--base-white)
+		color: color(--accent-blue)
+
+		&:hover, &:active, &.--active
+			background: color(--primary-light)
+
+		&[disabled], &.--disabled
+			background: color(--secondary)
+			border-color: color(--secondary)
+			color: transparentize(color(--disabled), 0.4)
+			opacity: 1
+
+		&.--outline
+			background: none
+			border-color: transparentize(color(--base-white), 0.5)
+			color: color(--white-text)
+
+			&:hover
+				border-color: color(--base-white)
+
+			&:active, &.--active
+				background: transparentize(color(--base-white), 0.9)
+				border-color: transparentize(color(--base-white), 0.9)
+
+			&[disabled], &.--disabled
+				border-color: transparentize(color(--base-white), 0.7)
+				color: transparentize(color(--disabled), 0.4)

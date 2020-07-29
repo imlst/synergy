@@ -1,0 +1,28 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.algorithm-details-table'
+
+.ui #{$class}
+	padding: 15px 20px
+	border-radius: 8px
+	border: 1px solid color(--indigo-35)
+
+	> ul
+		margin: 0 -20px
+		list-style: none
+		padding-left: 0
+
+		li
+			padding: 15px 20px
+			border-bottom: 1px solid color(--indigo-35)
+			margin-bottom: 0
+			font-size: 18px
+			display: flex
+
+			&:last-child
+				border-bottom: none
+				padding-bottom: 0
+
+	&__value
+		color: color(--black-50)
+		margin-left: auto

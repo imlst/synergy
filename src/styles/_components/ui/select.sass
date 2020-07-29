@@ -1,0 +1,230 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.select'
+
+.ui #{$class}
+	display: inline-flex
+	position: relative
+
+	&.--checked
+		#{$class}__value,
+		#{$class}__filter
+			color: color(--black)
+
+	&.active
+		#{$class}__arrow
+			transform: scaleY(-1)
+
+	&.--link
+		#{$class}__link
+			display: inline-flex
+			font-weight: 600
+			color: color(--blue)
+
+		#{$class}__arrow
+			margin-left: 5px
+
+	select
+		border: none
+		position: absolute
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		z-index: 1
+		opacity: 0
+		cursor: pointer
+		display: none
+
+	&__field
+		position: relative
+		display: inline-flex
+		align-items: center
+		box-sizing: border-box
+		padding: 15px
+		background: white
+		border: 1px solid color(--indigo-35)
+		border-radius: 6px
+		height: 50px
+		transition: border-color 0.2s ease
+		min-width: 60px
+		max-width: 100%
+		cursor: pointer
+		user-select: none
+
+		&.--large
+			@include media-min(sm)
+				height: 60px
+				padding: 20px
+				min-width: 80px
+
+				#{$class}__value
+					font-size: 18px
+
+		&:hover
+			border-color: color(--black)
+
+		&.active
+			border-color: color(--black)
+
+		#{$class}__arrow
+			color: color(--black)
+			font-size: 14px
+			margin-left: 10px
+			display: flex
+
+	&__value
+		width: 100%
+		color: color(--indigo-35)
+		font-size: 17px
+		line-height: 1
+		transition: color 0.2s ease
+		overflow: hidden
+		white-space: nowrap
+		text-overflow: ellipsis
+		pointer-events: none
+
+	&__filter
+		width: 100%
+		min-width: 0
+		color: color(--black)
+		border: none
+		appearance: none
+		padding: 0
+		font-size: 17px
+		font-weight: 500
+		font-family: Gilroy, sans-serif
+
+		&::placeholder
+			color: color(--indigo-35)
+
+		&:focus
+			outline: none
+
+	&__empty
+		display: none
+		padding: 20px
+		color: color(--indigo-80)
+
+	&__hint
+		position: absolute
+		top: 100%
+		left: 0
+		margin-top: 10px
+		z-index: 1090
+		width: max-content
+		min-width: 100%
+		max-width: calc(100vw - 30px)
+
+		&.--shown
+			#{$class}__window
+				opacity: 1
+				visibility: visible
+
+		//#{$class}__top-panel,
+		//#{$class}__bottom-panel
+			display: block
+
+	&__window
+		background: white
+		border-radius: 6px
+		overflow: hidden
+		opacity: 0
+		visibility: hidden
+		box-shadow: 0 9px 15px 0 color(--black-shadow)
+		transition: opacity 0.2s ease, visibility 0.2s ease
+
+		ul
+			list-style: none
+			padding-left: 0
+			margin: 0
+			position: relative
+			max-height: 345px
+			overflow-y: auto
+			-webkit-overflow-scrolling: touch
+
+			> li
+				border-bottom: 1px solid color(--black-5)
+				display: flex
+				flex-direction: column
+				padding: 20px
+				margin-bottom: 0
+				background: white
+				font-size: 15px
+				font-weight: 600
+				color: color(--black)
+				cursor: pointer
+				transition: background 0.2s ease, color 0.2s ease
+				user-select: none
+
+				@include media-min(sm)
+					font-size: 17px
+
+				&.--hide
+					display: none
+
+				#{$class}__option-description
+					color: color(--indigo-35)
+
+				&:hover
+					background: color(--blue-5)
+
+					.checkbox,
+					.radio
+						@extend :hover
+
+				&.disabled
+					pointer-events: none
+					color: color(--indigo-35)
+
+				&:last-child
+					border-bottom: none
+
+				.checkbox,
+				.radio
+					pointer-events: none !important
+
+	&__arrow
+		transition: all 0.2s ease
+
+	&__counter
+		margin-left: 0.3em
+
+		&:before
+			content: ''
+			display: inline-block
+			vertical-align: middle
+			width: 5px
+			height: 5px
+			background: currentColor
+			border-radius: 50%
+			margin-right: 0.4em
+
+		&:empty
+			display: none
+
+	&.disabled
+		background: color(--indigo-35)
+		border-color: color(--indigo-35)
+		cursor: default
+
+		#{$class}__value
+			color: color(--indigo-80)
+
+	//&__bottom-panel
+		display: none
+		margin: 20px -20px -20px
+		padding: 20px
+		background: color('white')
+		border-top: 1px solid color('alto')
+		border-bottom-left-radius: inherit
+		border-bottom-right-radius: inherit
+
+	//&__top-panel
+		display: none
+		margin: -20px -20px 20px
+		padding: 20px
+		background: color('white')
+		border-bottom: 1px solid color('alto')
+		border-top-left-radius: inherit
+		border-top-right-radius: inherit

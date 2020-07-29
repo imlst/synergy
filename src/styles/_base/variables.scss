@@ -1,0 +1,144 @@
+$media-breakpoints: (
+    'xxs': 0,
+    'xs': 450px,
+    'xsm': 620px,
+    'sm': 768px,
+    'md': 980px,
+    'lg': 1200px,
+    'xl': 1440px,
+    'xxl': 1600px,
+);
+
+$container-size: map-get($media-breakpoints, 'lg');
+
+$colors: (
+    '--base-dark': #0C143B,
+    '--base-dark-light': #66788F,
+    '--base-white': #FFFFFF,
+    '--light-gray': #F2F2F7,
+
+    '--base-text': #0C143B,
+    '--secondary-text': #66788F,
+    '--white-text': #FFFFFF,
+
+    '--link': #1C73DF,
+    '--focus': #99C0F0,
+    '--disabled': #66788F,
+    '--secondary': #DDE1E6,
+    '--border': #DDE1E6,
+    '--border-dark': #66788F,
+
+    '--accent-blue': #5577FC,
+    '--accent-dark-blue': #0050B2,
+    '--accent-red': #ED4264,
+    '--accent-purple': #8A55FC,
+
+    '--primary': #1C73DF,
+    '--error': #ED0000,
+    '--success': #00A645,
+    '--warning': #ED6E00,
+
+    '--primary-light': #E2EDFC,
+    '--error-light': #FCD9D9,
+    '--success-light': #D9F2E3,
+    '--warning-light': #FCE9D9,
+
+    '--base-shadow-8': 0 3px 25px 0 rgba(12, 20, 59, 0.08),
+    '--base-shadow-22': 0 3px 25px 0 rgba(12, 20, 59, 0.22),
+    '--base-shadow-32': 0 3px 25px 0 rgba(12, 20, 59, 0.32),
+
+    '--instagram': #A635AF,
+    '--vk': #5082B9,
+    '--youtube': #FF0000,
+    '--twitter': #1DA1F3,
+    '--facebook': #3A5998,
+    '--ok': #F7921E,
+);
+
+:root {
+    @each $name, $color in $colors {
+        #{$name}: #{$color};
+    }
+}
+
+$spacers: (
+    'auto': auto,
+    '0': 0px,
+    '2': 2px,
+    '5': 5px,
+    '10': 10px,
+    '15': 15px,
+    '20': 20px,
+    '25': 25px,
+    '30': 30px,
+    '35': 35px,
+    '40': 40px,
+    '50': 50px,
+    '60': 60px,
+    '70': 70px,
+    '100': 100px,
+);
+
+$font-weights: (
+    'thin': 100,
+    'light': 300,
+    'normal': 400,
+    'medium': 500,
+    'bold': 700,
+    'black': 900,
+);
+
+$displays: (
+    'none': none,
+    'inline': inline,
+    'inline-flex': inline-flex,
+    'inline-block': inline-block,
+    'flex': flex,
+    'block': block,
+    'table': table,
+    'table-cell': table-cell,
+);
+
+$font-sizes: (
+    '12px': 12px,
+    '14px': 14px,
+    '15px': 15px,
+    '16px': 16px,
+    '17px': 17px,
+    '18px': 18px,
+    '19px': 19px,
+    '20px': 20px,
+    '22px': 22px,
+    '24px': 24px,
+    '28px': 28px,
+    '30px': 30px,
+);
+
+$widths: (
+    'auto': auto,
+
+    '50ps': 50%,
+    '100ps': 100%,
+
+    '50px': 50px,
+    '60px': 60px,
+    '70px': 70px,
+    '80px': 80px,
+    '90px': 90px,
+    '100px': 100px,
+    '110px': 110px,
+    '120px': 120px,
+    '140px': 140px,
+    '160px': 160px,
+    '170px': 170px,
+    '180px': 180px,
+    '200px': 200px,
+    '240px': 240px,
+    '280px': 280px,
+    '300px': 300px,
+    '340px': 340px,
+    '380px': 380px,
+    '480px': 480px,
+    '580px': 580px,
+    '780px': 780px,
+);

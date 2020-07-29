@@ -1,0 +1,82 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.section-banner'
+
+.ui #{$class}
+	display: flex
+	flex-direction: column
+	background: white
+	height: 100%
+	padding: 30px 20px 40px
+	border-radius: 6px
+	font-size: 16px
+	font-weight: 500
+	text-align: center
+	box-shadow: 0 2px 15px 0 color(--black-shadow)
+
+	&.--blue
+		background: url("../img/patterns/section-banner-work-l.svg") -20px 0 no-repeat, url("../img/patterns/section-banner-work-r.svg") bottom right no-repeat, color(--blue)
+		color: white
+		box-shadow: none
+
+		#{$class}__desc
+			color: white
+
+	&.--purple
+		background: url("../img/patterns/section-banner-person-l.svg") bottom left no-repeat, url("../img/patterns/section-banner-person-r.svg") bottom right no-repeat, color(--purple)
+		color: white
+		box-shadow: none
+
+		#{$class}__desc
+			color: white
+
+	&.--green
+		background: url("../img/patterns/section-banner-health-l.svg") bottom left no-repeat, url("../img/patterns/section-banner-health-r.svg") calc(100% + 15px) 100% no-repeat, color(--green)
+		color: white
+		box-shadow: none
+
+		#{$class}__desc
+			color: white
+
+	&.--pink
+		background: url("../img/patterns/section-banner-family-l.svg") top left no-repeat, url("../img/patterns/section-banner-family-r.svg") bottom right no-repeat, color(--pink)
+		color: white
+		box-shadow: none
+
+		#{$class}__desc
+			color: white
+
+	&__title
+		font-family: '2MASSJ1808', sans-serif
+		font-size: 24px
+		font-weight: 700
+		letter-spacing: -2px
+
+	&__caption
+		font-size: 17px
+		font-weight: 600
+		margin-bottom: 20px
+
+		+ #{$class}__button
+			padding-top: 20px
+
+	&__desc
+		margin-bottom: 20px
+		color: color(--indigo-80)
+
+	&__icon
+		height: 45px
+		margin: 0 auto 15px
+
+	&__soon
+		font-size: 20px
+		font-weight: 600
+		font-style: italic
+		text-transform: uppercase
+		height: 44px
+		display: flex
+		align-items: center
+		justify-content: center
+
+	&__button
+		margin-top: auto

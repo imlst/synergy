@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+
+AuthType Basic
+AuthName "Administrative zone"
+AuthUserFile /var/www/u0824318/data/www/synergy-guide.a2.life/.htpasswd
+Require valid-user

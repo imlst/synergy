@@ -1,0 +1,129 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.algorithm-card'
+
+.ui .slider
+	#{$class}
+		width: 85vw
+		max-width: 340px
+		min-width: 280px
+
+		@include media-min(md)
+			max-width: 470px
+
+.ui #{$class}-grid
+	display: grid
+	grid-template-columns: 1fr
+	grid-gap: 20px
+	justify-content: center
+
+	@include media-min(xs)
+		grid-template-columns: 420px
+
+	@include media-min(sm)
+		grid-template-columns: 1fr 1fr
+		grid-gap: 30px
+		max-width: 970px
+		margin: 0 auto
+
+.ui #{$class}
+	background: white
+	border: 1px solid color(--indigo-35)
+	border-radius: 8px
+	color: color(--black)
+	display: flex
+	flex-direction: column
+	height: 100%
+
+	@at-root a#{$class}
+		&:hover
+			text-decoration: none
+			box-shadow: 0 9px 15px 0 color(--black-shadow)
+
+	&__cover
+		height: 140px
+		background-repeat: no-repeat
+		background-position: center
+		background-size: cover
+		border-top-left-radius: inherit
+		border-top-right-radius: inherit
+
+		@include media-min(md)
+			height: 200px
+
+	&__body
+		display: flex
+		flex-direction: column
+		padding: 20px 10px 25px
+		flex: 1 1 auto
+		font-size: 16px
+
+		@include media-min(sm)
+			padding: 30px 20px 35px
+
+		@include media-min(md)
+			font-size: 18px
+
+	.algorithm-details
+		margin-bottom: 15px
+
+	&__title
+		font-size: 18px
+		font-weight: 700
+		margin-bottom: 10px
+
+		&:last-child
+			margin-bottom: 0
+
+	&__program
+		color: color(--black-50)
+		margin-top: 20px
+		list-style: none
+		padding-left: 0
+		font-size: 16px
+
+		@include media-min(md)
+			font-size: 18px
+
+		&.--ticks
+			li
+				background: url("../img/icons/tick.svg") no-repeat
+				background-size: 18px
+				padding-left: 30px
+
+		li
+			margin-bottom: 12px
+
+			&:last-child
+				margin-bottom: 0
+
+	&__soon
+		display: flex
+		flex-direction: column
+		align-items: center
+		text-align: center
+		padding-top: 10px
+		margin-top: auto
+		margin-bottom: auto
+
+		@include media-min(md)
+			padding-top: 15px
+
+		&-label
+			background: color(--blue)
+			font-size: 18px
+			font-weight: 700
+			color: white
+			padding: 0.4em 1em
+			transform: rotate(-3deg)
+			margin-bottom: 15px
+
+			@include media-min(md)
+				font-size: 22px
+
+		&-desc
+			color: color(--indigo-35)
+			margin-bottom: 15px
+
+			&:last-child
+				margin-bottom: 0

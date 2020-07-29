@@ -1,0 +1,6 @@
+{
+    "name": "agro24/ag-ui",
+    "require": {
+        "jenssegers/blade": "^1.1"
+    }
+}

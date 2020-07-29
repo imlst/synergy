@@ -1,0 +1,33 @@
+@import '_base/*.sass'
+
+html
+	@import "~normalize-scss/sass/normalize.scss"
+	@include normalize()
+
+	-webkit-font-smoothing: antialiased
+	font-family: 'Roboto', sans-serif
+	font-size: 16px
+	line-height: 24px
+	font-weight: 400
+	color: color(--base-text)
+
+	*, :before, :after
+		box-sizing: border-box
+		-webkit-tap-highlight-color: transparent
+
+	*
+		&:focus
+			outline: 4px solid color(--focus)
+
+			&:active, &:hover
+				outline: none
+
+	body
+		min-width: 320px
+		display: flex
+		flex-direction: column
+		min-height: 100vh
+		margin: 0
+		overscroll-behavior: none
+
+@import '_components/**/*.sass'

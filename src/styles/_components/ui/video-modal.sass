@@ -1,0 +1,85 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.video-modal'
+
+.ui #{$class}
+	position: fixed
+	width: 100%
+	min-width: 290px
+	height: 100%
+	left: 0
+	right: 0
+	top: 0
+	bottom: 0
+	background: rgba(255, 255, 255, 0.8)
+	z-index: 5000
+	padding: 50px
+	overflow: auto
+	cursor: pointer
+	display: flex
+	justify-content: center
+	align-items: center
+	visibility: hidden
+	opacity: 0
+	transition: transform 0.2s ease, opacity 0.2s ease
+
+	@include media-max(sm)
+		padding: 40px 15px 15px
+
+	&.--shown
+		opacity: 1
+		visibility: visible
+
+		#{$class}__window
+			transform: scale(1)
+			opacity: 1
+
+	&__window
+		background: color(--black-85)
+		cursor: default
+		width: 100%
+		max-width: #{$container-size}
+		margin: auto
+		display: flex
+		flex-direction: column
+		position: relative
+		border-radius: 2px
+		opacity: 0
+		transform: scale(0.95)
+		transition: opacity 0.2s ease, transform 0.2s ease
+
+	&__controls
+		position: absolute
+		color: color(--black)
+		top: -40px
+		right: 0
+		font-size: 28px
+
+		@include media-max(sm)
+			font-size: 22px
+			top: -35px
+
+		.icon
+			cursor: pointer
+			margin-left: 5px
+
+	&__body
+		flex: 1
+		min-width: 0
+		overflow: auto
+
+	&__16-9
+		overflow: hidden
+		height: 0
+		padding-top: 56.25%
+		position: relative
+
+		iframe
+			position: absolute
+			top: 0
+			left: 0
+
+		[data-vimeo-initialized]
+			> div
+				position: static !important
+				padding-top: 0 !important

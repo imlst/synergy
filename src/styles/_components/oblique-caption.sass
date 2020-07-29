@@ -1,0 +1,16 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.oblique-caption'
+
+.ui #{$class}
+	display: inline-flex
+	font-size: 15px
+	font-weight: 700
+	background: color(--indigo-15)
+	padding: 0.4em 0.6em
+	transform: rotate(-3deg)
+	margin-bottom: 15px
+
+	@include media-min(sm)
+		font-size: 22px
+		margin-bottom: 20px

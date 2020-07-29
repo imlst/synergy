@@ -1,0 +1,83 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.success-factors-screen'
+
+.ui #{$class}
+	background: url("../img/patterns/success-factors-r.svg") right 30% no-repeat, color('--section-grey')
+	padding: 40px 0 80px
+	flex: 1 1 auto
+
+	@include media-min(sm)
+		padding: 60px 0 80px
+
+	@include media-min(lg)
+		padding: 60px 0 140px
+
+	@include media-min(xl)
+		background: url("../img/patterns/success-factors-l.svg") left 15% no-repeat, url("../img/patterns/success-factors-r.svg") right 30% no-repeat, color('--section-grey')
+
+	&__title
+		max-width: 300px
+
+		span
+			color: #643DFF
+
+		@include media-min(sm)
+			max-width: 420px
+
+	&__desc
+		@include media-min(xsm)
+			max-width: 270px
+
+		@include media-min(sm)
+			max-width: 370px
+
+	&__container
+		position: relative
+		z-index: 1
+
+	&__check-list
+		display: block
+		width: 100%
+		height: 100%
+		max-width: 400px
+		margin-top: 40px
+		margin-bottom: 20px
+		z-index: -1
+
+		@include media-min(xsm)
+			position: absolute
+			top: 0
+			right: 30px
+			width: 40%
+			height: auto
+			margin-top: 0
+			margin-bottom: 0
+
+		@include media-min(sm)
+			margin-top: -20px
+			width: 270px
+
+		@include media-min(md)
+			width: 360px
+			max-width: none
+			right: 80px
+
+		@include media-min(lg)
+			width: 460px
+			right: 100px
+
+	&__factor
+		font-size: 18px
+		font-weight: 500
+		color: color(--indigo-80)
+
+		&-caption
+			display: flex
+			color: color(--blue)
+
+			img
+				height: 24px
+				width: auto
+				margin-top: -2px
+				margin-right: 8px

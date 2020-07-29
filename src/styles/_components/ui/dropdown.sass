@@ -1,0 +1,152 @@
+@import 'src/styles/_base/mixins'
+
+[data-dropdown]
+	display: inline-flex
+	vertical-align: middle
+	cursor: default
+
+	&.--active, &:hover
+		.-underline-dashed
+			border-bottom-style: solid !important
+
+[data-dropdown *= '"trigger": "click"'],
+[data-dropdown *= '"trigger":"click"']
+	cursor: pointer
+
+[data-dropdown-content]
+	display: none
+	padding: 20px 10px
+
+.dropdown
+	display: flex
+	position: absolute
+	margin: -10px
+	will-change: transform
+	z-index: 1090
+	max-width: 100%
+
+	&[dropdown-position='top']
+		top: -10px
+
+		.dropdown__window
+			transform: translateY(-5px)
+
+			.dropdown__arrow
+				top: 100%
+				right: unset
+				bottom: unset
+				left: 10px
+				margin-top: -13px
+
+		&.--shown
+			.dropdown__window
+				transform: translateY(0)
+
+	&[dropdown-position='bottom']
+		top: 10px
+
+		.dropdown__window
+			transform: translateY(-5px)
+
+			.dropdown__arrow
+				top: unset
+				right: unset
+				bottom: 100%
+				left: 10px
+				margin-bottom: -13px
+
+		&.--shown
+			.dropdown__window
+				transform: translateY(0)
+
+	&[dropdown-position='left'], &[dropdown-position='left-bottom']
+		left: -10px
+		top: 0
+
+		.dropdown__window
+			transform: translateX(5px)
+
+			.dropdown__arrow
+				top: 10px
+				right: unset
+				bottom: unset
+				left: 100%
+				margin-left: -13px
+
+		&.--shown
+			.dropdown__window
+				transform: translateX(0)
+
+	&[dropdown-position='right'], &[dropdown-position='right-bottom']
+		left: 10px
+		top: 0
+
+		.dropdown__window
+			transform: translateX(-5px)
+
+			.dropdown__arrow
+				top: 10px
+				right: 100%
+				bottom: unset
+				left: unset
+				margin-right: -13px
+
+		&.--shown
+			.dropdown__window
+				transform: translateX(0)
+
+	&__arrow
+		position: absolute
+		display: block
+		background: #000
+		width: 20px
+		height: 20px
+		border-radius: 5px
+		pointer-events: none
+		z-index: -1
+		transform: rotate(45deg)
+		will-change: left, top
+
+	&__window
+		display: flex
+		flex-direction: column
+		background: #000
+		color: color('--base-white')
+		border-radius: 10px
+		opacity: 0
+		margin: 10px
+		position: relative
+		top: 0
+		left: 0
+		visibility: hidden
+		box-shadow: color(--base-shadow-22)
+		transition: all 0.15s ease
+		width: 100%
+
+		[data-dropdown-content]
+			display: block
+			overflow: auto
+
+	&__text-row
+		font-size: 15px
+		margin-bottom: 6px
+
+		&:last-child
+			margin-bottom: 0
+
+		&.-separated-top
+			border-top: 1px solid color('blocks-border')
+
+		&.-separated-bottom
+			border-bottom: 1px solid color('blocks-border')
+
+		> *
+			vertical-align: middle
+
+		> .icon
+			margin-right: 5px
+
+	&.--shown
+		.dropdown__window
+			opacity: 1
+			visibility: visible

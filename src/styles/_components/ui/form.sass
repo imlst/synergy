@@ -1,0 +1,17 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.form'
+
+.ui #{$class}
+	&__label
+		display: inline-block
+		font-size: 20px
+		font-weight: 600
+		margin-bottom: 5px
+
+		@include media-min(sm)
+			font-size: 24px
+			margin-bottom: 10px
+
+		&[for]
+			cursor: pointer

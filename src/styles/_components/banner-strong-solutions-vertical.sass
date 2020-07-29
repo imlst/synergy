@@ -1,0 +1,43 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.banner-strong-solutions-vertical'
+
+.ui #{$class}
+	background: color(--primary-light)
+	padding: 15px 15px 30px
+	text-align: center
+	font-size: 18px
+	border-radius: 8px
+	margin-bottom: 30px
+
+	&:last-child
+		margin-bottom: 0
+
+	.oblique-caption
+		font-size: 15px
+
+	&__title
+		font-family: '2MASSJ1808', sans-serif
+		font-weight: 700
+		font-size: 22px
+		text-transform: uppercase
+		margin-bottom: 20px
+
+	&__caption
+		font-size: 20px
+		font-weight: 700
+		margin-bottom: 15px
+
+	&__av
+		margin-bottom: -20px
+
+	&__globe
+		margin-top: -40px
+		margin-bottom: -35px
+		position: relative
+
+		.button
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-60%, -15%)

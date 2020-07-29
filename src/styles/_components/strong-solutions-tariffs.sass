@@ -1,0 +1,159 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.strong-solutions-tariffs'
+
+.ui #{$class}
+	background: url("../img/pages/strong-solutions/tariffs/pattern-r.svg") 50% 25% no-repeat, color('--primary')
+	color: white
+	padding: 50px 0
+
+	@include media-min(sm)
+		background: url("../img/pages/strong-solutions/tariffs/pattern-l.svg") calc(50% - 300px) 50% no-repeat, url("../img/pages/strong-solutions/tariffs/pattern-r.svg") calc(50% + 300px) 50% no-repeat, color('--primary')
+		padding: 80px 0
+
+	@include media-min(md)
+		background: url("../img/pages/strong-solutions/tariffs/pattern-l.svg") calc(50% - 450px) 50% no-repeat, url("../img/pages/strong-solutions/tariffs/pattern-r.svg") calc(50% + 450px) 50% no-repeat, color('--primary')
+
+	@include media-min(lg)
+		padding: 100px 0
+
+	&__oblique
+		display: flex
+		justify-content: center
+		margin-bottom: 25px
+
+		@include media-min(sm)
+			margin-bottom: 50px
+
+		.oblique-caption
+			color: color(--black)
+			margin-bottom: 0
+
+			@include media-min(sm)
+				font-size: 26px
+
+	&__grid
+		display: grid
+		grid-gap: 20px
+		grid-template-columns: repeat(1, minmax(290px, 345px))
+		justify-content: center
+		margin-top: 30px
+		margin-bottom: 50px
+
+		@include media-min(sm)
+			grid-gap: 30px
+			grid-template-columns: repeat(2, minmax(345px, 370px))
+			margin-top: 90px
+
+	&__tile
+		display: flex
+		flex-direction: column
+		background: white
+		color: color(--black)
+		border-radius: 10px
+		box-shadow: 0 9px 15px 0 color(--black-shadow)
+
+		&-head
+			font-weight: 700
+			font-size: 20px
+			padding: 15px
+			min-height: 60px
+			display: flex
+			align-items: center
+			justify-content: center
+			text-align: center
+			border-bottom: 1px solid color(--indigo-35)
+
+			@include media-min(sm)
+				font-size: 28px
+				min-height: 110px
+
+		&-body
+			display: flex
+			flex-direction: column
+			flex: 1 1 auto
+			padding: 15px 14px 30px
+
+			@include media-min(sm)
+				padding: 30px 20px 50px
+
+		&-schedule
+			font-size: 28px
+			font-weight: 500
+			color: color(--blue)
+			text-align: center
+			transform: rotate(-2deg)
+			margin: auto 0
+
+			@include media-min(sm)
+				font-size: 32px
+
+			strong
+				display: inline-block
+				font-size: 0.74em
+				font-weight: 600
+				background: #EDEFF7
+				padding: 0.5em 0.7em
+				margin: 0.4em
+				vertical-align: middle
+
+				&:first-child
+					margin-left: 0
+
+				&:last-child
+					margin-right: 0
+
+				&.--smaller
+					font-size: 0.52em
+
+				&.--blue
+					background: color(--blue)
+					color: white
+
+		&-price
+			list-style: none
+			padding: 30px 0 0
+			margin: auto 0 30px
+
+			@include media-min(sm)
+				margin-bottom: 50px
+
+			> li
+				display: flex
+				align-items: center
+				justify-content: space-between
+				font-size: 16px
+				font-weight: 500
+				color: color(--indigo-80)
+				margin-bottom: 15px
+
+				&:last-child
+					margin-bottom: 0
+
+				&.--profitable
+					strong
+						font-size: 26px
+						font-weight: 600
+						color: color(--success)
+
+				strong
+					font-size: 22px
+					font-weight: 500
+					color: color(--black)
+
+	&__footnotes
+		padding: 0
+		margin: 0 auto
+		list-style: none
+		max-width: 540px
+
+		> li
+			display: flex
+			margin-bottom: 20px
+
+		&-index
+			color: #E85B46
+			width: 16px
+			flex: 0 0 auto
+			text-align: right
+			margin-right: 5px

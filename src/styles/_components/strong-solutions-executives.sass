@@ -1,0 +1,72 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.strong-solutions-executives'
+
+.ui #{$class}
+	background: color('--section-grey')
+	padding: 50px 0
+
+	@include media-min(sm)
+		background: url("../img/pages/strong-solutions/executives/pattern-lt.svg") 0 50% no-repeat, url("../img/pages/strong-solutions/executives/pattern-lb.svg") 0 90% no-repeat, url("../img/pages/strong-solutions/executives/pattern-rt.svg") 100% 20% no-repeat, url("../img/pages/strong-solutions/executives/pattern-rb.svg") 100% 60% no-repeat, color('--section-grey')
+		background-size: 40px
+		padding: 80px 0
+
+	@include media-min(md)
+		background: url("../img/pages/strong-solutions/executives/pattern-lt.svg") 0 5% no-repeat, url("../img/pages/strong-solutions/executives/pattern-lb.svg") 0 90% no-repeat, url("../img/pages/strong-solutions/executives/pattern-rt.svg") 100% 10% no-repeat, url("../img/pages/strong-solutions/executives/pattern-rb.svg") 100% 80% no-repeat, color('--section-grey')
+		background-size: 40px
+
+	@include media-min(lg)
+		padding: 100px 0
+
+	&__tiles
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-evenly
+		margin-top: 20px
+		margin-bottom: 30px
+
+		@include media-min(sm)
+			margin: 40px 0
+
+		@include media-min(md)
+			margin: 50px 0
+
+	&__tile
+		text-align: center
+		max-width: 380px
+		padding: 25px 0
+
+		@include media-min(sm)
+			max-width: 340px
+			padding: 30px 15px
+
+		@include media-min(md)
+			max-width: 30%
+
+		&-desc
+			color: color(--indigo-80)
+			font-size: 16px
+
+			@include media-min(sm)
+				font-size: 18px
+
+		img
+			margin-bottom: 15px
+			height: 120px
+
+			@include media-min(sm)
+				height: 150px
+
+	&__bottom-caption
+		font-family: '2MASSJ1808', sans-serif
+		font-size: 16px
+		text-align: center
+		max-width: 300px
+		margin: 0 auto
+
+		@include media-min(sm)
+			max-width: 650px
+			font-size: 26px
+
+		@include media-min(md)
+			max-width: 860px

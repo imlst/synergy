@@ -1,0 +1,37 @@
+@import 'src/styles/_base/mixins'
+
+.section
+	background: color(--base-white)
+	padding: 40px 0
+
+	@include media-min(sm)
+		padding: 60px 0
+
+	.breadcrumb
+		padding-top: 0
+
+	&.--last
+		padding-bottom: 80px
+
+		@include media-min(sm)
+			padding-bottom: 140px
+
+	&:not([class*="--bg"]):not(.hidden)
+		+ .section:not([class*="--bg"])
+			padding-top: 0
+
+	&.--bg-guide
+		background: color(--light-gray)
+
+		+ .section.--bg-guide
+			padding-top: 0
+
+	&.--bg-grey
+		background: color('--light-gray')
+
+		&.--underline
+			border-bottom: 1px solid color(--border)
+
+		&:not(.--underline)
+			+ .section.--bg-grey
+				padding-top: 0

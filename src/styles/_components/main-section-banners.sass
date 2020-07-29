@@ -1,0 +1,26 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.main-section-banners'
+
+.ui #{$class}
+	background: url("../img/patterns/main-section-banners-l.svg") -220px 50% no-repeat, url("../img/patterns/main-section-banners-r.svg") calc(100% + 220px) 50% no-repeat, color(--blue)
+	padding: 40px 0 60px
+
+	@include media-min(sm)
+		background: url("../img/patterns/main-section-banners-l.svg") -150px 50% no-repeat, url("../img/patterns/main-section-banners-r.svg") calc(100% + 150px) 50% no-repeat, color(--blue)
+		padding: 60px 0 80px
+
+	@include media-min(md)
+		padding: 80px 0 100px
+
+	@include media-min(lg)
+		background: url("../img/patterns/main-section-banners-l.svg") calc(50% - 640px) 50% no-repeat, url("../img/patterns/main-section-banners-r.svg") calc(50% + 720px) 50% no-repeat, color(--blue)
+		padding: 100px 0 120px
+
+	&__container
+		max-width: $container-size
+		margin: 0 auto
+		padding: 0 15px
+
+		@include media-max(lg)
+			max-width: 720px

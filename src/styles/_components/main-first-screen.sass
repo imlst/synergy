@@ -1,0 +1,54 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.main-first-screen'
+
+.ui #{$class}
+	background: url("../img/patterns/main-first-screen-xs-l.svg") left 60% no-repeat, url("../img/patterns/main-first-screen-xs-r.svg") right 0 no-repeat, url("../img/patterns/main-first-screen-bl.svg") -20px bottom no-repeat, url("../img/patterns/main-first-screen-br.svg") calc(100% + 5px) bottom no-repeat, color('--section-grey')
+	background-size: 40px, 35px, 180px, 120px
+	padding: 40px 0 120px
+
+	@include media-min(sm)
+		background: url("../img/patterns/main-first-screen-l.svg") -40px 60% no-repeat, url("../img/patterns/main-first-screen-r.svg") calc(100% + 30px) -100px no-repeat, url("../img/patterns/main-first-screen-bl.svg") calc(50% - 290px) bottom no-repeat, url("../img/patterns/main-first-screen-br.svg") calc(50% + 300px) bottom no-repeat, color('--section-grey')
+		background-size: 130px, 120px, 260px, 180px
+		padding: 80px 0 130px
+
+	@include media-min(md)
+		background: url("../img/patterns/main-first-screen-l.svg") left 60% no-repeat, url("../img/patterns/main-first-screen-r.svg") right -50px no-repeat, url("../img/patterns/main-first-screen-bl.svg") calc(50% - 290px) bottom no-repeat, url("../img/patterns/main-first-screen-br.svg") calc(50% + 300px) bottom no-repeat, color('--section-grey')
+		padding-bottom: 170px
+
+	//@include media-min(lg)
+		padding-bottom: 110px
+
+	&__title
+		max-width: 300px
+
+		strong
+			display: inline-block
+			background: #FF9378
+			padding: 0.05em 0.2em
+			transform: rotate(-3deg)
+
+		@include media-min(sm)
+			max-width: 620px
+
+	&__desc
+		font-size: 16px
+		font-weight: 600
+		color: color(--indigo-80)
+		line-height: 1.5
+		max-width: 290px
+		margin: 0 auto
+
+		@include media-min(sm)
+			font-size: 30px
+			max-width: 500px
+
+		@include media-min(md)
+			max-width: none
+
+		img
+			width: 80px
+			vertical-align: text-top
+
+			@include media-min(sm)
+				width: 130px

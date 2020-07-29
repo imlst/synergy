@@ -1,0 +1,104 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.banner-strong-solutions'
+
+.ui #{$class}
+	background: color(--primary-light)
+	padding: 30px 0
+	text-align: center
+	overflow: hidden
+
+	@include media-min(sm)
+		background: url("../img/patterns/banner-strong-solutions-xs.svg") top right no-repeat, color(--primary-light)
+		text-align: left
+		padding: 60px 0
+
+	@include media-min(md)
+		background: url("../img/patterns/banner-strong-solutions-l.svg") -4% 15% no-repeat, url("../img/patterns/banner-strong-solutions-r.svg") 105% center no-repeat, color(--primary-light)
+		padding: 70px 0
+
+	@include media-min(lg)
+		background: url("../img/patterns/banner-strong-solutions-l.svg") -4% 15% no-repeat, url("../img/patterns/banner-strong-solutions-r.svg") right center no-repeat, color(--primary-light)
+
+	@include media-min(xl)
+		background: url("../img/patterns/banner-strong-solutions-l.svg") left 40% no-repeat, url("../img/patterns/banner-strong-solutions-r.svg") right center no-repeat, color(--primary-light)
+
+	&__container
+		max-width: $container-size
+		margin: 0 auto
+		padding: 0 15px
+		position: relative
+
+		@include media-min(sm)
+			padding: 0 30px
+
+		@include media-min(md)
+			padding: 0 15px
+
+	&__content
+		@include media-min(sm)
+			max-width: 440px
+
+		@include media-min(md)
+			max-width: 580px
+
+	&__desc
+		font-size: 16px
+		color: color(--black-50)
+		margin-bottom: 10px
+
+		@include media-min(sm)
+			font-size: 18px
+			margin-bottom: 30px
+
+	&__av
+		width: 250px
+		margin-top: 30px
+		margin-bottom: -120px
+
+		@include media-min(sm)
+			width: 340px
+			margin: 0
+			position: absolute
+			bottom: -60px
+			left: 60%
+
+		@include media-min(lg)
+			width: 420px
+
+	&__globe
+		margin-top: 50px
+		text-align: center
+
+		@include media-min(sm)
+			position: absolute
+			bottom: 60px
+			left: 60%
+			margin-top: 0
+
+			img
+				width: 340px
+
+		@include media-min(lg)
+			left: 55%
+			bottom: 0
+
+			img
+				width: 500px
+
+		&-wrap
+			position: relative
+
+			@include media-min(sm)
+				.button
+					transform: translate(-50%, 0)
+
+			@include media-min(lg)
+				.button
+					transform: translate(-60%, 20%)
+
+			.button
+				position: absolute
+				left: 50%
+				top: 50%
+				transform: translate(-50%, -10%)

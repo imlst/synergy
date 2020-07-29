@@ -1,0 +1,332 @@
+@import 'mixins'
+
+.hidden,
+.-hidden
+	display: none !important
+
+.-underline-dashed
+	border-bottom: 1px dashed
+	display: inline !important
+	line-height: 1.5
+
+	&:hover
+		text-decoration: none !important
+		border-bottom-style: solid !important
+
+//a.-underline-dashed
+	&:hover
+		border-bottom: 1px solid
+
+.-valign-middle
+	vertical-align: middle !important
+
+//.-border-none
+	border: none !important
+
+//.-box-shadow-none
+	box-shadow: none !important
+
+.-position-relative
+	position: relative !important
+
+//.-object-fit-cover
+	object-fit: cover !important
+
+//.-white-space-pre-line
+	white-space: pre-line !important
+
+//.-img-fix-size
+	max-width: 100%
+	height: auto
+
+//.-transparent
+	opacity: 0
+
+//.-clearfix
+	&:after
+		content: ''
+		display: table
+		clear: both
+
+.-overflow-hidden
+	overflow: hidden !important
+
+//.-cursor
+	&-pointer
+		cursor: pointer !important
+
+	&-default
+		cursor: default !important
+
+	&-not-allowed
+		cursor: not-allowed !important
+
+	&-text
+		cursor: text !important
+
+@each $name, $value in $colors
+	.-color-#{str_slice($name, 3)}
+		color: #{$value} !important
+		color: var(#{$name}) !important
+
+	.-bg-#{str_slice($name, 3)}
+		background: #{$value} !important
+		background: var(#{$name}) !important
+
+.-text-center
+	text-align: center !important
+
+//.-text-right
+	text-align: right !important
+
+.-text-left
+	text-align: left !important
+
+.-text-uppercase
+	text-transform: uppercase !important
+
+//.-text-underline
+	text-decoration: underline !important
+
+//.-text-nowrap
+	white-space: nowrap !important
+
+//.-text-truncate
+	white-space: nowrap
+	overflow: hidden
+	text-overflow: ellipsis
+
+//.-font-italic
+	font-style: italic
+
+.-font-2mass
+	font-family: '2MASSJ1808', sans-serif
+
+.-font-gilroy
+	font-family: 'Gilroy', sans-serif
+
+@each $alias, $weight in $font-weights
+	.-font-#{$alias}
+		font-weight: $weight !important
+
+@each $alias, $size in $font-sizes
+	.-font-size-#{$alias}
+		font-size: $size !important
+
+	@each $breakpoint, $width in $media-breakpoints
+		@if $width > 0
+			@media only screen and (min-width: $width)
+				.-#{$breakpoint}-font-size-#{$alias}
+					font-size: $size !important
+
+//.-height-100ps
+	height: 100% !important
+
+@each $alias, $value in $widths
+	.-width-#{$alias}
+		width: $value !important
+
+	.-max-width-#{$alias}
+		max-width: $value !important
+
+	@each $breakpoint, $width in $media-breakpoints
+		@if $width > 0
+			@media only screen and (min-width: $width)
+				.-#{$breakpoint}-width-#{$alias}
+					width: $value !important
+
+				.-#{$breakpoint}-max-width-#{$alias}
+					max-width: $value !important
+
+//.-align-self-center
+	align-self: center !important
+
+.-align-items-center
+	align-items: center !important
+
+.-align-items-end
+	align-items: end !important
+
+.-justify-content-center
+	justify-content: center !important
+
+.-sm-justify-content-start
+	@include media-min(sm)
+		justify-content: flex-start !important
+
+.-justify-content-end
+	justify-content: flex-end !important
+
+.-justify-content-space-between
+	justify-content: space-between !important
+
+.-wrap
+	flex-wrap: wrap !important
+
+.-nowrap
+	flex-wrap: nowrap !important
+
+//.-flex-stretch
+	flex: 1 1 auto !important
+
+//.-flex-unstretch
+	flex: none !important
+
+.-flex-0
+	flex: 0 !important
+
+.-flex-1
+	flex: 1 !important
+
+//.-flex-none
+	flex: none !important
+
+@for $i from 0 through 3
+	.-order-#{$i}
+		order: $i !important
+
+	@each $breakpoint, $width in $media-breakpoints
+		@if $width > 0
+			@for $i from 0 through 3
+				@media only screen and (min-width: $width)
+					.-#{$breakpoint}-order-#{$i}
+						order: $i !important
+
+@each $breakpoint, $width in $media-breakpoints
+	@if $width > 0
+		@media only screen and (min-width: $width)
+			//.-#{$breakpoint}-wrap
+				flex-wrap: wrap !important
+
+			//.-#{$breakpoint}-nowrap
+				flex-wrap: nowrap !important
+
+			//.-#{$breakpoint}-text-nowrap
+				white-space: nowrap !important
+
+			//.-#{$breakpoint}-overflow-hidden
+				overflow: hidden
+
+			//.-#{$breakpoint}-text-center
+				text-align: center !important
+
+			//.-#{$breakpoint}-text-right
+				text-align: right !important
+
+			//.-#{$breakpoint}-text-left
+				text-align: left !important
+
+			//.-#{$breakpoint}-text-uppercase
+				text-transform: uppercase !important
+
+			//.-#{$breakpoint}-flex-0
+				flex: 0 !important
+
+			//.-#{$breakpoint}-flex-1
+				flex: 1 !important
+
+			//.-#{$breakpoint}-flex-none
+				flex: none !important
+
+			//.-#{$breakpoint}-flex-stretch
+				flex: 1 1 auto !important
+
+			//.-#{$breakpoint}-flex-unstretch
+				flex: none !important
+
+			//.-#{$breakpoint}-height-100ps
+				height: 100% !important
+
+@each $alias, $display in $displays
+	.-d-#{$alias}
+		display: $display !important
+
+	@each $breakpoint, $width in $media-breakpoints
+		@if $width > 0
+			@media only screen and (min-width: $width)
+				.-#{$breakpoint}-d-#{$alias}
+					display: $display !important
+
+@each $alias, $spacer in $spacers
+	.-mx-#{$alias}
+		margin-left: $spacer !important
+		margin-right: $spacer !important
+
+	.-my-#{$alias}
+		margin-top: $spacer !important
+		margin-bottom: $spacer !important
+
+	.-mt-#{$alias}
+		margin-top: $spacer !important
+
+	.-mr-#{$alias}
+		margin-right: $spacer !important
+
+	.-mb-#{$alias}
+		margin-bottom: $spacer !important
+
+	.-ml-#{$alias}
+		margin-left: $spacer !important
+
+	.-px-#{$alias}
+		padding-left: $spacer !important
+		padding-right: $spacer !important
+
+	.-py-#{$alias}
+		padding-top: $spacer !important
+		padding-bottom: $spacer !important
+
+	.-pt-#{$alias}
+		padding-top: $spacer !important
+
+	.-pr-#{$alias}
+		padding-right: $spacer !important
+
+	.-pb-#{$alias}
+		padding-bottom: $spacer !important
+
+	.-pl-#{$alias}
+		padding-left: $spacer !important
+
+	@each $breakpoint, $width in $media-breakpoints
+		@if $width > 0
+			@media only screen and (min-width: $width)
+				.-#{$breakpoint}-mx-#{$alias}
+					margin-left: $spacer !important
+					margin-right: $spacer !important
+
+				.-#{$breakpoint}-my-#{$alias}
+					margin-top: $spacer !important
+					margin-bottom: $spacer !important
+
+				.-#{$breakpoint}-mt-#{$alias}
+					margin-top: $spacer !important
+
+				.-#{$breakpoint}-mr-#{$alias}
+					margin-right: $spacer !important
+
+				.-#{$breakpoint}-mb-#{$alias}
+					margin-bottom: $spacer !important
+
+				.-#{$breakpoint}-ml-#{$alias}
+					margin-left: $spacer !important
+
+				.-#{$breakpoint}-px-#{$alias}
+					padding-left: $spacer !important
+					padding-right: $spacer !important
+
+				.-#{$breakpoint}-py-#{$alias}
+					padding-top: $spacer !important
+					padding-bottom: $spacer !important
+
+				.-#{$breakpoint}-pt-#{$alias}
+					padding-top: $spacer !important
+
+				.-#{$breakpoint}-pr-#{$alias}
+					padding-right: $spacer !important
+
+				.-#{$breakpoint}-pb-#{$alias}
+					padding-bottom: $spacer !important
+
+				.-#{$breakpoint}-pl-#{$alias}
+					padding-left: $spacer !important

@@ -1,0 +1,109 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.strong-solutions-start'
+
+.ui #{$class}
+	background: url("../img/pages/strong-solutions/start/pattern-l.svg") left 70% no-repeat, url("../img/pages/strong-solutions/start/pattern-r.svg") right 80% no-repeat, color(--blue)
+	background-size: 60px, 60px
+	color: white
+	text-align: center
+	padding: 40px 0
+	overflow: hidden
+
+	@include media-min(sm)
+		background-size: 100px, 120px
+		padding: 80px 0
+
+	@include media-min(md)
+		text-align: left
+		background: url("../img/pages/strong-solutions/start/pattern-l.svg") -80px calc(100% - 20px) no-repeat, url("../img/pages/strong-solutions/start/pattern-r.svg") calc(100% + 30px) 10% no-repeat, color(--blue)
+
+	@include media-min(lg)
+		padding: 100px 0
+
+	@include media-min(xl)
+		background: url("../img/pages/strong-solutions/start/pattern-l.svg") left 90% no-repeat, url("../img/pages/strong-solutions/start/pattern-r.svg") right 35% no-repeat, color(--blue)
+
+	&__container
+		@include media-min(md)
+			position: relative
+			min-height: 420px
+
+	.oblique-caption
+		color: color(--black)
+		margin-bottom: 25px
+
+	&__content
+		max-width: 340px
+		margin: 0 auto
+		position: relative
+		z-index: 1
+
+		@include media-min(sm)
+			width: 620px
+			max-width: none
+			margin: 0 auto
+
+		@include media-min(md)
+			width: 55%
+			max-width: 620px
+			margin-left: 0
+
+	&__desc
+		font-size: 16px
+		font-weight: 500
+		margin-bottom: 20px
+
+		@include media-min(sm)
+			font-size: 28px
+			margin-bottom: 40px
+
+	&__play-button
+		font-size: 17px
+		color: inherit
+
+		.icon
+			font-size: 40px
+
+	&__actions
+		align-items: center
+		justify-content: center
+
+		@include media-min(md)
+			justify-content: flex-start
+
+	&__av
+		width: 220px
+		display: block
+		margin: 30px auto -80px
+
+		@include media-min(sm)
+			width: 350px
+
+		@include media-min(md)
+			position: absolute
+			margin: 0
+			bottom: -80px
+			right: 30px
+
+		@include media-min(lg)
+			bottom: -100px
+			right: 10%
+			width: 380px
+
+	.embed-video
+		max-width: 480px
+		margin: 30px auto 0
+		box-shadow: 0 9px 15px 0 color(--black-shadow)
+
+		@include media-min(sm)
+			max-width: 680px
+
+		@include media-min(md)
+			position: absolute
+			bottom: 50%
+			margin: 0
+			right: 30px
+			width: 40%
+			max-width: none
+			transform: translateY(50%)

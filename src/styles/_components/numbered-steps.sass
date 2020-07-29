@@ -1,0 +1,87 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.numbered-steps'
+
+.ui #{$class}
+	list-style: none
+	padding-left: 0
+	counter-reset: li
+	margin-bottom: 30px
+
+	&:last-child
+		margin-bottom: 0
+
+	&.--large
+		> li
+			&:before
+				@include media-min(sm)
+					width: 54px
+					height: 54px
+					font-size: 25px
+					padding-top: 0.2em
+					margin-right: 20px
+
+		#{$class}__icon
+			@include media-min(sm)
+				width: 54px
+				height: 54px
+				margin-right: 20px
+
+	&.--icons
+		> li
+			&:before
+				display: none
+
+	> li
+		display: flex
+		flex-direction: column
+		align-items: center
+		font-size: 16px
+		font-weight: 500
+		margin-bottom: 20px
+		text-align: center
+
+		&:last-child
+			margin-bottom: 0
+
+		&:before
+			counter-increment: li
+			content: counter(li)
+			display: flex
+			align-items: center
+			justify-content: center
+			flex: 0 0 auto
+			width: 44px
+			height: 44px
+			border: 2px solid color(--blue)
+			border-radius: 50%
+			padding-top: 0.1em
+			margin-bottom: 10px
+			font-size: 22px
+			color: color(--blue)
+			font-weight: 600
+
+			@include media-min(sm)
+				margin-bottom: 0
+				margin-right: 15px
+				align-self: flex-start
+
+		@include media-min(sm)
+			flex-direction: row
+			font-size: 18px
+			text-align: left
+
+	&__icon
+		width: 44px
+		height: 44px
+		margin-bottom: 10px
+
+		@include media-min(sm)
+			margin-bottom: 0
+			margin-right: 15px
+			align-self: flex-start
+
+	&__caption
+		font-size: 18px
+		font-weight: 600
+		margin-bottom: 5px

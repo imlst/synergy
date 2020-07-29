@@ -1,0 +1,30 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.algorithm-details'
+
+.ui #{$class}
+	display: flex
+	align-items: center
+	list-style: none
+	padding-left: 0
+
+	li
+		display: inline-flex
+		align-items: center
+		margin-right: 15px
+		margin-bottom: 0
+		font-size: 14px
+
+		&:last-child
+			margin-right: 0
+
+		.icon
+			margin-right: 5px
+
+		#{$class}__course
+			display: flex
+			align-items: center
+			background: color(--black-5)
+			border-radius: 10em
+			height: 32px
+			padding: 0 15px

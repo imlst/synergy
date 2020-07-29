@@ -1,0 +1,74 @@
+@import 'src/styles/_base/mixins'
+
+.tag
+    display: inline-flex
+    background: color(--secondary)
+    border: 1px solid color(--secondary)
+    color: color(--base-text)
+    border-radius: 8px
+    padding: 0 16px
+    height: 32px
+    font-size: 16px
+    line-height: 1
+    align-items: center
+    user-select: none
+    white-space: nowrap
+    vertical-align: middle
+    transition: background 0.2s ease, border 0.2s ease
+    will-change: background, border
+
+    @at-root a.tag
+        &:active, &.--active
+            background: color(--accent-dark-blue)
+            border: 1px solid color(--accent-dark-blue)
+            color: color(--white-text)
+
+    @include media-min(sm)
+        border-radius: 12px
+        height: 48px
+        font-size: 18px
+
+    &.--medium
+        @include media-min(sm)
+            border-radius: 8px
+            height: 32px
+            font-size: 16px
+
+    &.--small
+        border-radius: 4px
+        height: 24px
+        font-size: 14px
+        padding: 0 3px
+
+        .icon
+            font-size: 16px
+            margin: 0 4px
+
+    &.--primary
+        background: color(--accent-blue)
+        border: 1px solid color(--accent-blue)
+        color: color(--white-text)
+        font-weight: 500
+
+        .icon
+            color: color(--accent-dark-blue)
+
+    &.--dark
+        background: color(--base-dark-light)
+        border: 1px solid color(--base-dark-light)
+        color: color(--white-text)
+        font-weight: 500
+
+    &.--outline
+        background: none
+        border: 1px solid color(--accent-blue)
+        color: color(--accent-blue)
+
+    .icon
+        margin: 0 5px
+
+        &:first-child
+            margin-left: 0 !important
+
+        &:last-child
+            margin-right: 0 !important

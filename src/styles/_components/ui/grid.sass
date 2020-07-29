@@ -1,0 +1,42 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.grid'
+$columns: 12
+$gutters: 12px
+$mobile-gutters: 4px
+
+#{$class}
+	margin: (-$mobile-gutters)
+	display: flex
+	flex-wrap: wrap
+
+	@include media-min(sm)
+		margin: (-$gutters)
+
+	+ #{$class}
+		margin-top: $mobile-gutters
+
+		@include media-min(sm)
+			margin-top: $gutters
+
+	&__cell
+		display: block
+		flex-wrap: wrap
+		padding: $mobile-gutters
+		width: 100%
+		max-width: 100%
+
+		@include media-min(sm)
+			padding: $gutters
+
+		@each $breakpoint, $width in $media-breakpoints
+			@for $i from 1 through $columns
+				$cell-size: $columns / $i
+
+				@if $width == 0
+					&.--xxs-#{$i}
+						width: percentage(1 / $cell-size)
+				@else
+					&.--#{$breakpoint}-#{$i}
+						@media only screen and (min-width: $width)
+							width: percentage(1 / $cell-size)

@@ -1,0 +1,21 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.container'
+
+.ui #{$class}
+	max-width: $container-size
+	margin: 0 auto 40px
+	padding: 0 15px
+
+	&:last-child
+		margin-bottom: 0
+
+	@include media-min(sm)
+		margin: 0 auto 60px
+		padding: 0 30px
+
+	@include media-min(md)
+		padding: 0 15px
+
+	&.--compact
+		margin-bottom: 40px

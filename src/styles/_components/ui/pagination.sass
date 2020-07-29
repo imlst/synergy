@@ -1,0 +1,83 @@
+@import 'src/styles/_base/mixins'
+
+.pagination
+	display: flex
+	justify-content: center
+
+	&__page
+		display: none
+		align-items: center
+		justify-content: center
+		width: 48px
+		height: 48px
+		border-radius: 4px
+		font-size: 17px
+		font-weight: 600
+		line-height: 1
+		border: 1px solid color(--accent-blue)
+		color: color(--accent-blue)
+		margin: 0 5px
+		transition: border-color 0.1s ease, background 0.1s ease, color 0.1s ease
+		will-change: border-color, background, color
+
+		@include media-min(xsm)
+			display: flex
+
+		&:first-child
+			margin-left: 0
+
+		&:last-child
+			margin-right: 0
+
+		&:hover
+			background: color(--primary-light)
+			text-decoration: none
+
+		&.--first, &.--last
+			display: flex !important
+
+		&.--prev, &.--next
+			display: flex
+
+		&:active, &.--active
+			display: flex
+			color: color(--white-text)
+			background: color(--accent-blue)
+
+		&.--active
+			pointer-events: none
+
+		&.--step
+			display: flex
+			background: color(--base-white)
+
+			&:hover
+				background: color(--primary-light)
+
+			&:active, &.--active
+				color: color(--white-text)
+				background: color(--accent-blue)
+
+		&.--dots
+			background: none
+			border: none
+			width: 28px
+			color: color(--secondary-text)
+
+	&.--steps
+		.icon
+			font-size: 48px
+
+		&:not(.--at-first)
+			.pagination__page.--next
+				@include media-max(xsm)
+					display: none
+
+		&:not(.--at-last)
+			.pagination__page.--prev
+				@include media-max(xsm)
+					display: none
+
+	&.--few
+		.pagination__page
+			display: flex

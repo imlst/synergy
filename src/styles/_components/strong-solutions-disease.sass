@@ -1,0 +1,84 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.strong-solutions-disease'
+
+.ui #{$class}
+	background: color('--section-grey-dark')
+	padding: 50px 0
+	position: relative
+
+	@include media-min(sm)
+		background: url("../img/pages/strong-solutions/disease/pattern-lt.svg") 0 55% no-repeat, url("../img/pages/strong-solutions/disease/pattern-lb.svg") 0 90% no-repeat, url("../img/pages/strong-solutions/disease/pattern-rt.svg") 100% 10% no-repeat, url("../img/pages/strong-solutions/disease/pattern-rb.svg") 100% 45% no-repeat, color('--section-grey-dark')
+		background-size: 70px, 70px, 25px, 30px
+		padding: 80px 0
+
+	@include media-min(md)
+		background: url("../img/pages/strong-solutions/disease/pattern-lt.svg") 0 20% no-repeat, url("../img/pages/strong-solutions/disease/pattern-lb.svg") 0 80% no-repeat, url("../img/pages/strong-solutions/disease/pattern-rt.svg") 100% 15% no-repeat, url("../img/pages/strong-solutions/disease/pattern-rb.svg") 100% 80% no-repeat, color('--section-grey-dark')
+		background-size: 75px, 75px, 40px, 50px
+
+	@include media-min(lg)
+		padding: 100px 0
+
+	&__tiles
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-evenly
+		margin-top: 20px
+
+		@include media-min(sm)
+			margin: 40px 0 -30px
+
+		@include media-min(md)
+			margin: 50px 0 -30px
+
+	&__tile
+		text-align: center
+		max-width: 380px
+		padding: 25px 0
+
+		@include media-min(sm)
+			max-width: 330px
+			padding: 30px 15px
+
+		@include media-min(md)
+			max-width: 30%
+
+		@include media-min(lg)
+			max-width: 330px
+
+		&-desc
+			color: color(--indigo-80)
+			font-size: 16px
+
+			@include media-min(sm)
+				font-size: 18px
+
+		img
+			margin-bottom: 15px
+			height: 130px
+
+			@include media-min(sm)
+				height: 160px
+
+	&__arrow
+		background: url("../img/pages/strong-solutions/disease/arrow.svg") center no-repeat
+		background-size: contain
+		width: 80px
+		height: 100px
+		position: absolute
+		top: -50px
+		left: 50%
+
+		@include media-min(sm)
+			width: 100px
+			height: 140px
+			top: -70px
+			left: 50%
+
+		@include media-min(md)
+			left: calc(50% + 200px)
+
+		@include media-min(lg)
+			width: 120px
+			height: 180px
+			top: -90px

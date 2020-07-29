@@ -1,0 +1,96 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.footer'
+
+.ui #{$class}
+	font-size: 17px
+	font-weight: 400
+	background: color(--black)
+	color: color(--indigo-35)
+	margin-top: auto
+
+	&__container
+		width: 100%
+		max-width: $container-size
+		padding: 40px 15px
+		margin: 0 auto
+
+		@include media-min(md)
+			padding-top: 60px
+
+	&__logo
+		display: inline-flex
+
+		img
+			display: block
+			width: 150px
+			height: 100%
+
+	&__bottom
+		border-top: 1px solid color(--indigo-80)
+
+		#{$class}__container
+			padding: 20px 15px
+
+	&__contacts
+		font-size: 22px
+		font-weight: 700
+		margin-bottom: 10px
+		color: white
+
+	&__fluid-cell
+		@include media-max(lg)
+			order: -1
+			margin-bottom: 20px
+
+		@include media-min(lg)
+			text-align: right
+			margin-left: auto
+
+	&__social
+		list-style: none
+		padding-left: 0
+
+		> li
+			display: inline-block
+			margin-right: 20px
+			margin-bottom: 0
+
+			&:last-child
+				margin-right: 0
+
+			> a
+				display: flex
+				align-items: center
+				justify-content: center
+				width: 50px
+				height: 50px
+				border-radius: 50%
+				color: color(--black-50)
+				border: 2px solid color(--black-50)
+				transition: color 0.2s ease, border-color 0.2s ease
+
+				&:hover
+					color: white
+					border-color: white
+
+				.icon
+					font-size: 24px
+
+	&__list-title
+		color: white
+		margin-bottom: 15px
+		font-weight: 700
+
+	&__sections-list
+		list-style: none
+		padding-left: 0
+
+		li
+			margin-bottom: 15px
+
+			&:last-child
+				margin-bottom: 0
+
+			a
+				color: color(--indigo-35)

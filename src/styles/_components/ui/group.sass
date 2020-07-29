@@ -1,0 +1,32 @@
+@import 'src/styles/_base/mixins'
+
+.group
+    --gutters: 5px
+
+    &.--gutters-3
+        --gutters: 3px
+
+    &.--gutters-10
+        --gutters: 10px
+
+    &.--scrollable
+        overflow: hidden
+
+        .group__wrapper
+            overflow: auto
+            flex-wrap: nowrap
+            padding-bottom: 30px
+            margin-bottom: calc(-30px - #{var(--gutters)})
+            margin-right: 0
+
+    &.--centered
+        .group__wrapper
+            justify-content: center
+
+    &__wrapper
+        display: flex
+        flex-wrap: wrap
+        margin: calc(var(--gutters) * -1)
+
+    &__item
+        margin: var(--gutters)

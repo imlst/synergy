@@ -1,0 +1,78 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.sidebar-container'
+
+.ui #{$class}
+	width: 100%
+	max-width: $container-size
+	margin: 0 auto 40px
+	padding: 0 15px
+	display: flex
+	flex-direction: column
+
+	&:after
+		display: block
+		clear: both
+		content: ''
+
+	&:last-child
+		margin-bottom: 0
+
+	@include media-min(sm)
+		margin-bottom: 60px
+		padding: 0 30px
+
+	@include media-min(md)
+		display: block
+		padding: 0 15px
+
+	&.--left
+		@include media-min(md)
+			#{$class}__bar
+				float: left
+				padding-right: 30px
+				padding-left: 0
+
+			.container
+				margin-right: 0
+				margin-left: 300px
+
+	&.--mobile-top
+		#{$class}__bar
+			order: 0
+			margin-top: 0
+			margin-bottom: 40px
+
+			@include media-min(sm)
+				margin-bottom: 60px
+
+	&.--sticky
+		#{$class}__bar
+			position: sticky
+			top: 20px
+
+	.container
+		padding: 0
+		margin-left: 0
+		margin-right: 0
+
+		&.--stretch
+			margin-left: 0
+			margin-right: 0
+
+		@include media-min(md)
+			margin-right: 300px
+
+	&__bar
+		order: 1
+		margin-top: 40px
+
+		@include media-min(sm)
+			margin-top: 60px
+
+		@include media-min(md)
+			width: 300px
+			float: right
+			padding-right: 0
+			padding-left: 30px
+			margin-top: 0

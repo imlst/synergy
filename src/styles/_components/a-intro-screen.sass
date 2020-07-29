@@ -1,0 +1,52 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.a-intro-screen'
+
+.ui #{$class}
+	background: url("../img/patterns/a-intro-l.svg") left 40% no-repeat, url("../img/patterns/a-intro-r.svg") right 30% no-repeat, color(--blue-5)
+	background-size: 45px, 30px
+	padding: 40px 0
+	text-align: center
+
+	@include media-min(sm)
+		padding: 60px 0
+		background-size: 100px, 80px
+
+	&__desc
+		font-size: 18px
+		font-weight: 500
+
+		@include media-min(sm)
+			font-size: 24px
+
+	.h3.--large
+		@include media-min(sm)
+			font-size: 32px
+
+	.embed-video
+		margin: 20px -5px
+
+		@include media-min(sm)
+			margin: 40px auto
+			max-width: 860px
+
+		@include media-min(lg)
+			margin: 60px auto
+			max-width: 1060px
+
+	&__bottom-action
+		padding-bottom: 120px
+		background: url("../img/patterns/a-intro-b.svg") center bottom no-repeat
+		background-size: 185px
+		margin-top: 40px
+		margin-bottom: -40px
+
+		@include media-min(sm)
+			padding-bottom: 200px
+			background-size: 300px
+			margin-top: 70px
+			margin-bottom: -60px
+
+		@include media-min(lg)
+			margin-top: 80px
+			margin-bottom: -80px

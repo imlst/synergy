@@ -1,0 +1,111 @@
+@import 'src/styles/_base/mixins'
+
+.input
+	display: inline-flex
+	flex-direction: column
+
+	&__wrapper
+		position: relative
+		width: 100%
+
+		input
+			appearance: none
+			background: color(--base-white)
+			border: 1px solid color(--border)
+			color: color(--base-text)
+			border-radius: 4px
+			padding: 0 16px
+			height: 64px
+			width: 100%
+			transition: padding 0.2s ease, border 0.2s ease
+			will-change: padding, border
+
+			&:hover
+				border-color: color(--border-dark)
+
+			&:focus
+				border-color: color(--accent-blue)
+				//outline: none
+
+	&.--placeholder
+		input
+			&:focus
+				padding-top: 20px
+
+				+ .input__placeholder
+					top: 18px
+					font-size: 16px
+
+		&:not(.--empty)
+			input
+				padding-top: 20px
+
+				+ .input__placeholder
+					top: 18px
+					font-size: 16px
+
+	&.--disabled
+		input
+			background: color(--secondary)
+			border-color: color(--secondary)
+
+	&.--error
+		input
+			background: #FEF2F2
+			border-color: color(--error)
+
+		.input__validate-icon.--error
+			opacity: 1
+
+			~ input
+				padding-right: 45px
+
+		.input__message
+			color: color(--error)
+
+	&.--success
+		input
+			border-color: color(--success)
+
+		.input__validate-icon.--success
+			opacity: 1
+
+			~ input
+				padding-right: 45px
+
+		.input__message
+			color: color(--success)
+
+	&__placeholder
+		position: absolute
+		top: 50%
+		left: 16px
+		transform: translate(0, -50%)
+		pointer-events: none
+		color: color(--secondary-text)
+		font-size: 18px
+		transition: top 0.2s ease, font-size 0.2s ease
+		will-change: top, font-size
+
+	&__validate-icon
+		position: absolute
+		top: 50%
+		right: 16px
+		transform: translate(0, -50%)
+		opacity: 0
+		pointer-events: none
+		transition: opacity 0.1s ease
+		will-change: opacity
+
+		&.--error
+			color: color(--error)
+
+		&.--success
+			color: color(--success)
+
+	&__message
+		font-size: 16px
+		margin-top: 8px
+
+		&:empty
+			display: none

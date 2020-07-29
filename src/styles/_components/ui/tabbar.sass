@@ -1,0 +1,130 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.tabbar'
+
+.ui #{$class}
+	//display: flex
+	padding: 10px 15px 0
+	margin: 0 -15px 20px
+	overflow: hidden
+	font-size: 20px
+	font-weight: 500
+
+	&.--scrollable
+		margin-bottom: 30px
+
+		#{$class}__scroller
+			flex-wrap: nowrap
+			overflow-x: auto
+			-webkit-overflow-scrolling: touch
+			padding-bottom: 40px
+			margin-bottom: -38px
+
+		#{$class}__wrapper
+			flex-wrap: nowrap
+			white-space: nowrap
+
+		#{$class}__tab
+			margin-bottom: 0
+
+	&.--centered
+		justify-content: center
+
+		#{$class}__scroller,
+		#{$class}__wrapper
+			justify-content: center
+
+	&__scroller
+		display: flex
+		flex-wrap: wrap
+		margin: 0 -15px
+
+	&__wrapper
+		display: flex
+		flex-wrap: wrap
+		padding: 0 5px
+
+	&:not(.--scrollable)
+		@include media-max(sm)
+			&.--expanded
+				#{$class}__wrapper
+					height: auto
+					padding-top: 10px
+					padding-bottom: 10px
+
+				#{$class}__toggle-arrow
+					transform: scaleY(-1)
+
+			#{$class}__wrapper
+				height: 0
+
+			#{$class}__tab
+				width: 100%
+				flex: 1 1 auto
+				margin-bottom: 0
+				padding: 10px 0
+
+				&:after
+					content: none
+
+	&__tab
+		flex: 0 0 auto
+		position: relative
+		padding-bottom: 2px
+		margin: 0 10px 20px
+		transition: color 0.2s ease
+		user-select: none
+		cursor: pointer
+
+		&:after
+			display: block
+			content: ''
+			position: absolute
+			top: 100%
+			left: 0
+			width: 100%
+			height: 2px
+			border-radius: 1px
+			background: color(--blue)
+			background: var(--blue)
+			opacity: 0
+			transition: opacity 0.2s ease
+
+		&.disabled
+			color: color(--indigo-80)
+			color: var(--indigo-80)
+			cursor: default !important
+			pointer-events: none !important
+
+		&.active
+			color: color(--blue)
+			color: var(--blue)
+
+			&:after
+				opacity: 1
+
+		> *
+			vertical-align: middle
+
+	&__toggle
+		display: flex
+		align-items: center
+		border-top: 1px solid color(--indigo-35)
+		border-bottom: 1px solid color(--indigo-35)
+		margin: 0 -15px
+		padding: 10px 15px
+		cursor: pointer
+		user-select: none
+
+		@include media-min(sm)
+			display: none
+
+		&-name
+			color: color(--blue)
+
+		&-arrow
+			font-size: 14px
+			padding-left: 10px
+			margin-left: auto
+			color: color(--indigo-80)
+			transition: transform 0.2s ease

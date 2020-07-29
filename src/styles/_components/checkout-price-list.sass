@@ -1,0 +1,34 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.checkout-price-list'
+
+.ui #{$class}
+	list-style: none
+	padding: 0
+	margin: 0
+
+	@include media-min(xsm)
+		width: 340px
+
+	> li
+		display: flex
+		align-items: center
+		justify-content: space-between
+		font-size: 16px
+		font-weight: 500
+		color: color(--indigo-80)
+		margin-bottom: 15px
+
+		&:last-child
+			margin-bottom: 0
+
+		&.--profitable
+			strong
+				font-size: 26px
+				font-weight: 600
+				color: color(--success)
+
+		strong
+			font-size: 22px
+			font-weight: 500
+			color: color(--black)

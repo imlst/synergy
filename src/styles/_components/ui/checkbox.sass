@@ -1,0 +1,117 @@
+@import 'src/styles/_base/mixins'
+
+$class: '.checkbox'
+
+.ui #{$class}
+	display: inline-flex
+	vertical-align: middle
+
+	&:hover
+		#{$class}__marker
+			border-color: color(--black)
+
+	&.--small-text
+		#{$class}__label
+			font-size: 10px
+
+	&.--large
+		&.--small-text
+			#{$class}__label
+				@include media-min(sm)
+					font-size: 14px
+
+		#{$class}__marker
+			@include media-min(sm)
+				width: 40px
+				height: 40px
+				border-radius: 6px
+
+		#{$class}__label
+			@include media-min(sm)
+				font-size: 17px
+				padding-left: 15px
+
+	&.--error
+		[type="checkbox"]
+			&:checked,
+			&:not(:checked),
+				+ #{$class}__view
+					#{$class}__marker
+						border: 1px solid color(--error)
+
+	&__view
+		display: flex
+		align-items: center
+		cursor: pointer
+		width: 100%
+
+	&__marker
+		display: inline-flex
+		width: 30px
+		height: 30px
+		flex: 0 0 auto
+		background: white
+		border: 1px solid color(--indigo-35)
+		border-radius: 4px
+		position: relative
+		transition: border-color 0.2s ease
+
+		&:before
+			display: block
+			content: ''
+			background-size: contain
+			width: 14px
+			height: 14px
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+
+	&__label
+		padding-left: 10px
+		font-size: 15px
+		text-align: left
+		user-select: none
+
+		a
+			color: color(--indigo-35)
+
+	[type="checkbox"]
+		opacity: 0
+		position: absolute
+		pointer-events: none
+
+		&:focus
+			+ #{$class}__view
+				#{$class}__marker
+					border-color: color(--black)
+
+		&:checked
+			+ #{$class}__view
+				#{$class}__marker
+					border: 1px solid color(--black)
+
+					&:before
+						background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDE0IDEwIj4KICA8cGF0aCBkPSJNNS44MDcgNi41MDJMMTEuNTYzLjQ0YTEuNDA2IDEuNDA2IDAgMCAxIDIuMDQyIDAgMS40NDEgMS40NDEgMCAwIDEgMCAxLjk4M0w2LjgyOSA5LjU2YTEuNDA2IDEuNDA2IDAgMCAxLTIuMDQzIDBMLjM5NSA1LjMyOUExLjQyOCAxLjQyOCAwIDAgMSAwIDQuMzM3YzAtLjM3LjEzNi0uNzE5LjM5NC0uOTkxYTEuNDA2IDEuNDA2IDAgMCAxIDIuMDQ0IDBsMy4zNjkgMy4xNTZ6Ii8+Cjwvc3ZnPg==) center no-repeat
+
+		&:indeterminate
+			+ #{$class}__view
+				#{$class}__marker
+					border: 1px solid color(--black)
+
+					&:before
+						background: color(--black)
+						width: 14px
+						height: 4px
+						border-radius: 3px
+
+		&:disabled
+			+ #{$class}__view
+				cursor: default
+
+				#{$class}__marker
+					background: color(--indigo-35)
+					border: 1px solid color(--indigo-35)
+
+					&:before
+						opacity: 0.5
