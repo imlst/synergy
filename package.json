@@ -45,7 +45,7 @@
     },
     "dependencies": {
         "body-scroll-lock": "^2.6.1",
-        "highlight.js": "^9.15.10",
+        "highlight.js": "^10.4.1",
         "normalize-scss": "^7.0.1",
         "shave": "^2.5.9",
         "smoothscroll-polyfill": "^0.4.4",
