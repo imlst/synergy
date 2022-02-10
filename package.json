@@ -36,7 +36,7 @@
         "gulp-svgstore": "^7.0.1",
         "gulp-uglify-es": "^1.0.4",
         "merge-stream": "^1.0.1",
-        "node-sass": "^4.11.0",
+        "node-sass": "^7.0.0",
         "node-sass-tilde-importer": "^1.0.2",
         "uglifyify": "^5.0.1",
         "vinyl-buffer": "^1.0.1",
